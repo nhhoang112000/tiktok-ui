@@ -4,7 +4,6 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import {
     faCircleQuestion,
     faCircleXmark,
-    faCloudUpload,
     faCoins,
     faEarthAsia,
     faEllipsisVertical,
@@ -26,6 +25,8 @@ import styles from './Header.module.scss';
 import images from '~/assets/images';
 import AccountItem from '~/components/AccountItem';
 import Menu from '~/components/Popper/Menu';
+import { UploadIcon } from '~/components/Icons';
+import Image from '~/components/Image';
 
 const cx = classNames.bind(styles);
 
@@ -136,7 +137,7 @@ function Header() {
                         <>
                             <Tippy delay={[0, 200]} content="Upload video" placement="bottom">
                                 <button className={cx('action-btn')}>
-                                    <FontAwesomeIcon icon={faCloudUpload} />
+                                    <UploadIcon />
                                 </button>
                             </Tippy>
                             <button className={cx('action-btn')}>
@@ -151,12 +152,11 @@ function Header() {
                     )}
                     <Menu items={currentUser ? userMenu : MENU_ITEM} onChange={handleMenuChange}>
                         {currentUser ? (
-                            <img
-                                width={100}
-                                height={100}
+                            <Image
                                 className={cx('user-avatar')}
                                 src="https://ae01.alicdn.com/kf/HTB1z3Z3bAWE3KVjSZSyq6xocXXaD/B-p-B-T-nh-D-c-Qu-n-L-t-Sinh-Vi-n-Tr-ng.jpg_Q90.jpg_.webp"
                                 alt="nguyen van a"
+                                fallback="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRx6Z4MyDVhzcurJum71_bmXamL73ZoNik_fw&usqp=CAU"
                             />
                         ) : (
                             <button className={cx('more-btn')}>
